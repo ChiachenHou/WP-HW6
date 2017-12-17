@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>HW6_1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    
+      var i=0;
+      var college=["商學院", "工學院", "建設學院"];
+      var dep0=["會計學系", "國際經營與貿易學系", "國際經營與貿易學系國際企業管理全英語學士班", "財稅學系" ,
+	            "合作經濟暨社會事業經營學系", "統計學系", "經濟學系", "企業管理學系", "行銷學系", "國際企業管理學士學位學程(英語專班)", 
+		        "商學進修學士學位學程", "財經法律研究所", "科技管理碩士學位學程", "產業碩士專班", "商學專業碩士在職學位學程", "商學博士學位學程"];
+      var dep1=["機械與電腦輔助工程學系", "纖維與複合材料學系", "工業工程與系統管理學系", "化學工程學系", "航太與系統工程學系", "精密系統設計學士學位學程",
+                "電聲碩士學位學程", "綠色能源科技碩士學位學程", "創意設計碩士學位學程", "材料與製造工程碩士在職專班", "智能製造與工程管理碩士在職學位學程", "機械與航空工程博士學位學程"];
+      var dep2=["土木工程學系", "水利工程與資源保育學系", "都市計畫與空間資訊學系", "運輸與物流學系", "土地管理學系",
+                "景觀與遊憩碩士學位學程", "專案管理碩士在職學位學程", "建設碩士在職學位學程", "土木水利工程與建設規劃博士學位學程"];
+      
+      for(i=0;i<college.length;i++){
+              $("#colleges-list").append('<option value="'+i+'">'+college[i]+'</option>');
+      }
+      
+      for(i=0;i<dep0.length;i++){
+              $("#department-list").append('<option value="'+i+'">'+dep0[i]+'</option>');
+      }
+      
+      $("#colleges-list").change(function(){
+        id=$("#colleges-list option:selected").val();
+        switch(id){
+          case "0":
+            $("#department-list").empty();
+            for(i=0;i<dep0.length;i++){
+              $("#department-list").append('<option value="'+i+'">'+dep0[i]+'</option>');
+            }
+            break;
+          
+          case "1":
+            $("#department-list").empty();
+            for(i=0;i<dep1.length;i++){
+              $("#department-list").append('<option value="'+i+'">'+dep1[i]+'</option>');
+            }
+            break;
+            
+          case "2":
+            $("#department-list").empty();
+            for(i=0;i<dep2.length;i++){
+              $("#department-list").append('<option value="'+i+'">'+dep2[i]+'</option>');
+            }
+            break;
+            
+          default:
+            console.log("Not Accept");
+        }
+      });
+    });
+    </script>
+  </head>
+  
+  <body>
+    <p>請選擇學院</p>
+    <select id = "colleges-list">
+    </select>
+    
+    <p>請選擇科系</p>
+    <select id = "department-list" >
+    </select>
+  </body>
+</html>
+
+
